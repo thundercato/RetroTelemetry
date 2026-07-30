@@ -1,0 +1,13 @@
+{
+  "name": "RetroTelemetry",
+  "schema_version": 1,
+  "manifest": "manifest.json",
+  "games_directory": "games",
+  "schemas_directory": "schemas",
+  "hash_algorithms": [
+    "crc32",
+    "md5",
+    "sha1"
+  ],
+  "primary_hash_algorithm": "crc32"
+}
