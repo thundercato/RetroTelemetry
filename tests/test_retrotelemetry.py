@@ -17,10 +17,34 @@ class RetroTelemetryManifestTests(unittest.TestCase):
         manifest = build_manifest(ROOT, generated_at="2026-07-30T00:00:00Z")
         entry = manifest["hashes"]["crc32"]["F9394E97"]
 
-        self.assertEqual(manifest["game_count"], 1)
+        self.assertGreaterEqual(manifest["game_count"], 1)
         self.assertEqual(entry["game_id"], "mega-drive.sonic-the-hedgehog")
         self.assertEqual(entry["telemetry_layout_id"], "sonic-1-mega-drive-revision-0")
         self.assertEqual(entry["path"], "games/mega-drive/sonic-the-hedgehog.json")
+
+    def test_mega_drive_experimental_batch_is_present_and_never_claims_verification(self):
+        names = {
+            "alien-soldier.json", "altered-beast.json", "battletoads.json",
+            "castlevania-bloodlines.json", "columns.json", "comix-zone.json",
+            "dr-robotniks-mean-bean-machine.json", "dynamite-headdy.json",
+            "golden-axe.json", "golden-axe-iii.json", "mega-turrican.json",
+            "mortal-kombat-ii.json", "musha.json", "ristar.json",
+            "rocket-knight-adventures.json", "shadow-dancer-the-secret-of-shinobi.json",
+            "shinobi-iii-return-of-the-ninja-master.json", "sonic-3-and-knuckles.json",
+            "sonic-and-knuckles.json", "sonic-the-hedgehog-2.json",
+            "sonic-the-hedgehog-3.json", "splatterhouse-2.json",
+            "streets-of-rage.json", "streets-of-rage-2.json", "streets-of-rage-3.json",
+            "strider.json", "super-hang-on.json", "the-revenge-of-shinobi.json",
+            "thunder-force-iv.json", "vectorman.json",
+        }
+        root = ROOT / "games" / "mega-drive"
+        self.assertTrue(all((root / name).is_file() for name in names))
+        for name in names:
+            data = json.loads((root / name).read_text(encoding="utf-8"))
+            self.assertTrue(all(item["verification_state"] == "experimental" for item in data["roms"]))
+            for layout in data["telemetry_layouts"]:
+                self.assertEqual(layout["verification_state"], "experimental")
+                self.assertTrue(all(item["verification_state"] == "experimental" for item in layout["properties"]))
 
     def test_multiple_hashes_can_reference_one_layout(self):
         data = json.loads((ROOT / "games" / "mega-drive" / "sonic-the-hedgehog.json").read_text(encoding="utf-8"))
