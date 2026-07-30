@@ -1,7 +1,7 @@
 {
   "format": "RetroTelemetry Manifest",
-  "game_count": 1,
-  "generated_at": "2026-07-30T08:19:10Z",
+  "game_count": 31,
+  "generated_at": "2026-07-30T18:24:29Z",
   "hashes": {
     "crc32": {
       "F9394E97": {
@@ -17,9 +17,362 @@
       }
     },
     "md5": {},
-    "sha1": {}
+    "sha1": {
+      "17AE2595E4D3FB705C9F8F66D5938DECA3F95C4E": {
+        "definition_version": 1,
+        "game_id": "mega-drive.columns",
+        "game_title": "Columns",
+        "path": "games/mega-drive/columns.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "columns-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "180285DBFC1613489F1C20E9FD6C2B154DEC7FE2": {
+        "definition_version": 1,
+        "game_id": "mega-drive.mega-turrican",
+        "game_title": "Mega Turrican",
+        "path": "games/mega-drive/mega-turrican.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "mega-turrican-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "1D15FF596DD4F3B2C1212A2E0C6E2B72F62C001E": {
+        "definition_version": 1,
+        "game_id": "mega-drive.ristar",
+        "game_title": "Ristar",
+        "path": "games/mega-drive/ristar.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "ristar-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "1E07D7998E3048FCFBA4238AE96496460E91B3A5": {
+        "definition_version": 1,
+        "game_id": "mega-drive.shinobi-iii-return-of-the-ninja-master",
+        "game_title": "Shinobi III: Return of the Ninja Master",
+        "path": "games/mega-drive/shinobi-iii-return-of-the-ninja-master.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "shinobi-iii-return-of-the-ninja-master-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "26FE42D13A01C8789BBAD722EBAC05B8A829EB37": {
+        "definition_version": 1,
+        "game_id": "mega-drive.strider",
+        "game_title": "Strider",
+        "path": "games/mega-drive/strider.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "strider-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "2CE17105CA916FBBE3AC9AE3A2086E66B07996DD": {
+        "definition_version": 1,
+        "game_id": "mega-drive.golden-axe",
+        "game_title": "Golden Axe",
+        "path": "games/mega-drive/golden-axe.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "golden-axe-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "38945360D824D2FB9535B4FD7F25B9AA9B32F019": {
+        "definition_version": 1,
+        "game_id": "mega-drive.altered-beast",
+        "game_title": "Altered Beast",
+        "path": "games/mega-drive/altered-beast.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "altered-beast-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "40A33DD6F9DAB0AFF26C7525C9B8F342482C7AF6": {
+        "definition_version": 1,
+        "game_id": "mega-drive.streets-of-rage-3",
+        "game_title": "Streets of Rage 3",
+        "path": "games/mega-drive/streets-of-rage-3.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "streets-of-rage-3-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "4809CF80CED70E77BC7479BB652A9D9FE22CE7E6": {
+        "definition_version": 1,
+        "game_id": "mega-drive.castlevania-bloodlines",
+        "game_title": "Castlevania: Bloodlines",
+        "path": "games/mega-drive/castlevania-bloodlines.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "castlevania-bloodlines-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "49634BB09C38FA03549577F977E6AFB6CEBAAC48": {
+        "definition_version": 1,
+        "game_id": "mega-drive.rocket-knight-adventures",
+        "game_title": "Rocket Knight Adventures",
+        "path": "games/mega-drive/rocket-knight-adventures.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "rocket-knight-adventures-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "57A64D08028B539DC236A693D383F2E1269A5DD4": {
+        "definition_version": 1,
+        "game_id": "mega-drive.vectorman",
+        "game_title": "Vectorman",
+        "path": "games/mega-drive/vectorman.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "vectorman-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "59EC19EC442989D2738C055B9290661661D13F8F": {
+        "definition_version": 1,
+        "game_id": "mega-drive.splatterhouse-2",
+        "game_title": "Splatterhouse 2",
+        "path": "games/mega-drive/splatterhouse-2.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "splatterhouse-2-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "5EF3C29B6BDD04D24552AB200D0530F647AFDB08": {
+        "definition_version": 1,
+        "game_id": "mega-drive.battletoads",
+        "game_title": "Battletoads",
+        "path": "games/mega-drive/battletoads.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "battletoads-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "731CDF182FE647E4977477BA4DD2E2B46B9B878A": {
+        "definition_version": 1,
+        "game_id": "mega-drive.streets-of-rage",
+        "game_title": "Streets of Rage",
+        "path": "games/mega-drive/streets-of-rage.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "streets-of-rage-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "75E9C4705259D84112B3E697A6C00A0813D47D71": {
+        "definition_version": 1,
+        "game_id": "mega-drive.sonic-the-hedgehog-3",
+        "game_title": "Sonic the Hedgehog 3",
+        "path": "games/mega-drive/sonic-the-hedgehog-3.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "sonic-the-hedgehog-3-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "821EEA5D357F26710A4E2430A2F349A80DF5F2F6": {
+        "definition_version": 1,
+        "game_id": "mega-drive.musha",
+        "game_title": "MUSHA",
+        "path": "games/mega-drive/musha.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "musha-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "88D6499D874DCB5721FF58D76FE1B9AF811192E3": {
+        "definition_version": 1,
+        "game_id": "mega-drive.sonic-and-knuckles",
+        "game_title": "Sonic & Knuckles",
+        "path": "games/mega-drive/sonic-and-knuckles.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "sonic-and-knuckles-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "8B656EEC9692D88BBBB84787142AA732B44CE0BE": {
+        "definition_version": 1,
+        "game_id": "mega-drive.streets-of-rage-2",
+        "game_title": "Streets of Rage 2",
+        "path": "games/mega-drive/streets-of-rage-2.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "streets-of-rage-2-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "8BCA5DCEF1AF3E00098666FD892DC1C2A76333F9": {
+        "definition_version": 1,
+        "game_id": "mega-drive.sonic-the-hedgehog-2",
+        "game_title": "Sonic the Hedgehog 2",
+        "path": "games/mega-drive/sonic-the-hedgehog-2.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "sonic-the-hedgehog-2-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "A3A1C2CB8BD202C5E1B9745B35B2FFB12B2B90F5": {
+        "definition_version": 1,
+        "game_id": "mega-drive.shadow-dancer-the-secret-of-shinobi",
+        "game_title": "Shadow Dancer: The Secret of Shinobi",
+        "path": "games/mega-drive/shadow-dancer-the-secret-of-shinobi.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "shadow-dancer-the-secret-of-shinobi-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "AA6B60103FA92BC95FCC824BF1675E411627C8D3": {
+        "definition_version": 1,
+        "game_id": "mega-drive.dr-robotniks-mean-bean-machine",
+        "game_title": "Dr. Robotnik's Mean Bean Machine",
+        "path": "games/mega-drive/dr-robotniks-mean-bean-machine.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "dr-robotniks-mean-bean-machine-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "AF6D2DB16F2B76940FF5A9738F1E00C4E7EA485E": {
+        "definition_version": 1,
+        "game_id": "mega-drive.mortal-kombat-ii",
+        "game_title": "Mortal Kombat II",
+        "path": "games/mega-drive/mortal-kombat-ii.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "mortal-kombat-ii-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "B1044E3B782351E69EBA0ABC94A3F08C379C27BC": {
+        "definition_version": 1,
+        "game_id": "mega-drive.the-revenge-of-shinobi",
+        "game_title": "The Revenge of Shinobi",
+        "path": "games/mega-drive/the-revenge-of-shinobi.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "the-revenge-of-shinobi-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "B711A909CCE238CA4AF3E517A2EDCA306228EFA5": {
+        "definition_version": 1,
+        "game_id": "mega-drive.sonic-3-and-knuckles",
+        "game_title": "Sonic 3 & Knuckles",
+        "path": "games/mega-drive/sonic-3-and-knuckles.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "sonic-3-and-knuckles-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "C5F096B08470A564A737140B71247748608C32B6": {
+        "definition_version": 1,
+        "game_id": "mega-drive.shadow-dancer-the-secret-of-shinobi",
+        "game_title": "Shadow Dancer: The Secret of Shinobi",
+        "path": "games/mega-drive/shadow-dancer-the-secret-of-shinobi.json",
+        "rom_id": "stable-retro-integration-rom-2",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "shadow-dancer-the-secret-of-shinobi-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "CD9ECC1DF4E01D69AF9BEBCF45BBD944F1B17F9F": {
+        "definition_version": 1,
+        "game_id": "mega-drive.golden-axe-iii",
+        "game_title": "Golden Axe III",
+        "path": "games/mega-drive/golden-axe-iii.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "golden-axe-iii-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "CFBF98C36C776677290A872547AC47C53D2761D6": {
+        "definition_version": 1,
+        "game_id": "mega-drive.sonic-3-and-knuckles",
+        "game_title": "Sonic 3 & Knuckles",
+        "path": "games/mega-drive/sonic-3-and-knuckles.json",
+        "rom_id": "stable-retro-integration-rom-2",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "sonic-3-and-knuckles-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "E58A8E6C472A34D9ECF3B450137DF8A63EC9C791": {
+        "definition_version": 1,
+        "game_id": "mega-drive.super-hang-on",
+        "game_title": "Super Hang-On",
+        "path": "games/mega-drive/super-hang-on.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "super-hang-on-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "E843DECDFF262791B1237F1545F5B17C56712D5F": {
+        "definition_version": 1,
+        "game_id": "mega-drive.dynamite-headdy",
+        "game_title": "Dynamite Headdy",
+        "path": "games/mega-drive/dynamite-headdy.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "dynamite-headdy-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "E8747EEFDF61172BE9DA8787BA5BE447EC73180F": {
+        "definition_version": 1,
+        "game_id": "mega-drive.comix-zone",
+        "game_title": "Comix Zone",
+        "path": "games/mega-drive/comix-zone.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "comix-zone-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "ECBC2BFC4F3D8BBD46B398274ED2F5CC3DB68454": {
+        "definition_version": 1,
+        "game_id": "mega-drive.thunder-force-iv",
+        "game_title": "Thunder Force IV",
+        "path": "games/mega-drive/thunder-force-iv.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "thunder-force-iv-stable-retro-experimental",
+        "verification_state": "experimental"
+      },
+      "FA141778BD6540775194D77318F27D2A934E1AC1": {
+        "definition_version": 1,
+        "game_id": "mega-drive.alien-soldier",
+        "game_title": "Alien Soldier",
+        "path": "games/mega-drive/alien-soldier.json",
+        "rom_id": "stable-retro-integration-rom",
+        "rom_label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "alien-soldier-stable-retro-experimental",
+        "verification_state": "experimental"
+      }
+    }
   },
   "manifest_version": 1,
-  "rom_count": 1,
+  "rom_count": 33,
   "schema_version": 1
 }

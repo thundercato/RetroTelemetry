@@ -1,0 +1,149 @@
+{
+  "format": "RetroTelemetry Game Definition",
+  "schema_version": 1,
+  "definition_version": 1,
+  "game": {
+    "id": "mega-drive.comix-zone",
+    "title": "Comix Zone",
+    "system_id": "mega_drive",
+    "aliases": [
+      "Comix Zone"
+    ]
+  },
+  "roms": [
+    {
+      "id": "stable-retro-integration-rom",
+      "label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+      "primary_hash": {
+        "algorithm": "sha1",
+        "value": "E8747EEFDF61172BE9DA8787BA5BE447EC73180F"
+      },
+      "hashes": {
+        "crc32": [],
+        "md5": [],
+        "sha1": [
+          "E8747EEFDF61172BE9DA8787BA5BE447EC73180F"
+        ]
+      },
+      "telemetry_layout_id": "comix-zone-stable-retro-experimental",
+      "verification_state": "experimental",
+      "compatibility_notes": "Published Stable-Retro SHA-1. Region and revision require owner confirmation; no compatibility with other dumps is claimed."
+    }
+  ],
+  "telemetry_layouts": [
+    {
+      "id": "comix-zone-stable-retro-experimental",
+      "title": "Comix Zone Stable-Retro experimental layout",
+      "verification_state": "experimental",
+      "polling": {
+        "recommended_interval_ms": 100,
+        "memory_domains": [
+          "core_ram"
+        ]
+      },
+      "properties": [
+        {
+          "id": "combos",
+          "edas_alias": "combos",
+          "friendly_name": "Combos",
+          "category": "Game State",
+          "description": "Experimental raw Combos value from Stable-Retro's data.json. Original Genesis 24-bit work-RAM address 0xFFBF00 is converted to RetroArch core_ram offset 0xBF00 by subtracting 0xFF0000. Stable-Retro type is >u2. EDAS uses the Sonic 1 Mega Drive compatibility mapping (core_ram, swap16, big-endian) for this ordinary work-RAM field. It has not been tested through RetroTelemetry or EDAS.",
+          "address": "0xBF00",
+          "length": 2,
+          "value_type": "uint16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "verification_state": "experimental",
+          "notes": "Source label: combos; Stable-Retro declaration: >u2; validation required for region, revision, byte order and gameplay meaning."
+        },
+        {
+          "id": "finalscore",
+          "edas_alias": "finalscore",
+          "friendly_name": "Finalscore",
+          "category": "Player Statistics",
+          "description": "Experimental raw Finalscore value from Stable-Retro's data.json. Original Genesis 24-bit work-RAM address 0xFFBEF4 is converted to RetroArch core_ram offset 0xBEF4 by subtracting 0xFF0000. Stable-Retro type is >u2. EDAS uses the Sonic 1 Mega Drive compatibility mapping (core_ram, swap16, big-endian) for this ordinary work-RAM field. It has not been tested through RetroTelemetry or EDAS.",
+          "address": "0xBEF4",
+          "length": 2,
+          "value_type": "uint16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "verification_state": "experimental",
+          "notes": "Source label: finalscore; Stable-Retro declaration: >u2; validation required for region, revision, byte order and gameplay meaning."
+        },
+        {
+          "id": "finishes",
+          "edas_alias": "finishes",
+          "friendly_name": "Finishes",
+          "category": "Game State",
+          "description": "Experimental raw Finishes value from Stable-Retro's data.json. Original Genesis 24-bit work-RAM address 0xFFBF02 is converted to RetroArch core_ram offset 0xBF02 by subtracting 0xFF0000. Stable-Retro type is >u2. EDAS uses the Sonic 1 Mega Drive compatibility mapping (core_ram, swap16, big-endian) for this ordinary work-RAM field. It has not been tested through RetroTelemetry or EDAS.",
+          "address": "0xBF02",
+          "length": 2,
+          "value_type": "uint16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "verification_state": "experimental",
+          "notes": "Source label: finishes; Stable-Retro declaration: >u2; validation required for region, revision, byte order and gameplay meaning."
+        },
+        {
+          "id": "health",
+          "edas_alias": "health",
+          "friendly_name": "Health",
+          "category": "Player State",
+          "description": "Experimental raw Health value from Stable-Retro's data.json. Original Genesis 24-bit work-RAM address 0xFFBF04 is converted to RetroArch core_ram offset 0xBF04 by subtracting 0xFF0000. Stable-Retro type is >i2. EDAS uses the Sonic 1 Mega Drive compatibility mapping (core_ram, swap16, big-endian) for this ordinary work-RAM field. It has not been tested through RetroTelemetry or EDAS.",
+          "address": "0xBF04",
+          "length": 2,
+          "value_type": "int16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "fast",
+          "verification_state": "experimental",
+          "notes": "Source label: health; Stable-Retro declaration: >i2; validation required for region, revision, byte order and gameplay meaning."
+        },
+        {
+          "id": "progress",
+          "edas_alias": "progress",
+          "friendly_name": "Progress",
+          "category": "Game State",
+          "description": "Experimental raw Progress value from Stable-Retro's data.json. Original Genesis 24-bit work-RAM address 0xFFBEF8 is converted to RetroArch core_ram offset 0xBEF8 by subtracting 0xFF0000. Stable-Retro type is >u2. EDAS uses the Sonic 1 Mega Drive compatibility mapping (core_ram, swap16, big-endian) for this ordinary work-RAM field. It has not been tested through RetroTelemetry or EDAS.",
+          "address": "0xBEF8",
+          "length": 2,
+          "value_type": "uint16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "verification_state": "experimental",
+          "notes": "Source label: progress; Stable-Retro declaration: >u2; validation required for region, revision, byte order and gameplay meaning."
+        }
+      ],
+      "derived_properties": [],
+      "events": [],
+      "compatibility_notes": "All addresses are imported from the named Stable-Retro Genesis integration and converted from 24-bit work RAM. Runtime verification is required before promotion."
+    }
+  ],
+  "provenance": {
+    "migration": "Experimental definition generated from Stable-Retro integration metadata; no ROM content was downloaded or included.",
+    "sources": [
+      {
+        "project": "Farama Foundation Stable-Retro",
+        "repository": "https://github.com/Farama-Foundation/stable-retro",
+        "source_directory": "stable_retro/data/stable/ComixZone-Genesis-v0",
+        "source_files": [
+          "data.json",
+          "rom.sha"
+        ],
+        "accessed": "2026-07-30",
+        "address_conversion": "Stable-Retro Genesis addresses are 24-bit work-RAM addresses in 0xFF0000-0xFFFFFF. RetroArch core_ram offset = address - 0xFF0000. EDAS byte order follows the existing Sonic 1 Mega Drive compatibility mapping: swap16 plus big-endian.",
+        "confidence": "experimental",
+        "limitations": "Stable-Retro integration labels and SHA-1 are useful research evidence, but this definition is not runtime-tested in EDAS. The integration does not record a user-facing region/revision label."
+      }
+    ]
+  }
+}

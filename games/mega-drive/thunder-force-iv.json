@@ -1,0 +1,101 @@
+{
+  "format": "RetroTelemetry Game Definition",
+  "schema_version": 1,
+  "definition_version": 1,
+  "game": {
+    "id": "mega-drive.thunder-force-iv",
+    "title": "Thunder Force IV",
+    "system_id": "mega_drive",
+    "aliases": [
+      "Thunder Force IV"
+    ]
+  },
+  "roms": [
+    {
+      "id": "stable-retro-integration-rom",
+      "label": "Stable-Retro integration ROM (region and revision not recorded by source)",
+      "primary_hash": {
+        "algorithm": "sha1",
+        "value": "ECBC2BFC4F3D8BBD46B398274ED2F5CC3DB68454"
+      },
+      "hashes": {
+        "crc32": [],
+        "md5": [],
+        "sha1": [
+          "ECBC2BFC4F3D8BBD46B398274ED2F5CC3DB68454"
+        ]
+      },
+      "telemetry_layout_id": "thunder-force-iv-stable-retro-experimental",
+      "verification_state": "experimental",
+      "compatibility_notes": "Published Stable-Retro SHA-1. Region and revision require owner confirmation; no compatibility with other dumps is claimed."
+    }
+  ],
+  "telemetry_layouts": [
+    {
+      "id": "thunder-force-iv-stable-retro-experimental",
+      "title": "Thunder Force IV Stable-Retro experimental layout",
+      "verification_state": "experimental",
+      "polling": {
+        "recommended_interval_ms": 100,
+        "memory_domains": [
+          "core_ram"
+        ]
+      },
+      "properties": [
+        {
+          "id": "lives",
+          "edas_alias": "lives",
+          "friendly_name": "Lives",
+          "category": "Player Statistics",
+          "description": "Experimental raw Lives value from Stable-Retro's data.json. Original Genesis 24-bit work-RAM address 0xFFF2F1 is converted to RetroArch core_ram offset 0xF2F1 by subtracting 0xFF0000. Stable-Retro type is |i1. EDAS uses the Sonic 1 Mega Drive compatibility mapping (core_ram, swap16, big-endian) for this ordinary work-RAM field. It has not been tested through RetroTelemetry or EDAS.",
+          "address": "0xF2F1",
+          "length": 1,
+          "value_type": "int8",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "verification_state": "experimental",
+          "notes": "Source label: lives; Stable-Retro declaration: |i1; validation required for region, revision, byte order and gameplay meaning."
+        },
+        {
+          "id": "score",
+          "edas_alias": "score",
+          "friendly_name": "Score",
+          "category": "Player Statistics",
+          "description": "Experimental raw Score value from Stable-Retro's data.json. Original Genesis 24-bit work-RAM address 0xFFF08E is converted to RetroArch core_ram offset 0xF08E by subtracting 0xFF0000. Stable-Retro type is >u4. EDAS uses the Sonic 1 Mega Drive compatibility mapping (core_ram, swap16, big-endian) for this ordinary work-RAM field. It has not been tested through RetroTelemetry or EDAS.",
+          "address": "0xF08E",
+          "length": 4,
+          "value_type": "uint32",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "verification_state": "experimental",
+          "notes": "Source label: score; Stable-Retro declaration: >u4; validation required for region, revision, byte order and gameplay meaning."
+        }
+      ],
+      "derived_properties": [],
+      "events": [],
+      "compatibility_notes": "All addresses are imported from the named Stable-Retro Genesis integration and converted from 24-bit work RAM. Runtime verification is required before promotion."
+    }
+  ],
+  "provenance": {
+    "migration": "Experimental definition generated from Stable-Retro integration metadata; no ROM content was downloaded or included.",
+    "sources": [
+      {
+        "project": "Farama Foundation Stable-Retro",
+        "repository": "https://github.com/Farama-Foundation/stable-retro",
+        "source_directory": "stable_retro/data/stable/ThunderForceIV-Genesis-v0",
+        "source_files": [
+          "data.json",
+          "rom.sha"
+        ],
+        "accessed": "2026-07-30",
+        "address_conversion": "Stable-Retro Genesis addresses are 24-bit work-RAM addresses in 0xFF0000-0xFFFFFF. RetroArch core_ram offset = address - 0xFF0000. EDAS byte order follows the existing Sonic 1 Mega Drive compatibility mapping: swap16 plus big-endian.",
+        "confidence": "experimental",
+        "limitations": "Stable-Retro integration labels and SHA-1 are useful research evidence, but this definition is not runtime-tested in EDAS. The integration does not record a user-facing region/revision label."
+      }
+    ]
+  }
+}
