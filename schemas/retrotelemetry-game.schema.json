@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "retrotelemetry-game.schema.json",
+  "title": "RetroTelemetry Game Definition",
+  "description": "Schema for a RetroTelemetry game definition.",
+  "type": "object"
+}
