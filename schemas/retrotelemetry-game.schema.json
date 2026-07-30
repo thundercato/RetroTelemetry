@@ -1,7 +1,74 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "retrotelemetry-game.schema.json",
+  "$id": "https://github.com/thundercato/RetroTelemetry/schemas/retrotelemetry-game.schema.json",
   "title": "RetroTelemetry Game Definition",
-  "description": "Schema for a RetroTelemetry game definition.",
-  "type": "object"
+  "type": "object",
+  "required": ["format", "schema_version", "definition_version", "game", "roms", "telemetry_layouts", "provenance"],
+  "properties": {
+    "format": {"const": "RetroTelemetry Game Definition"},
+    "schema_version": {"const": 1},
+    "definition_version": {"type": "integer", "minimum": 1},
+    "game": {
+      "type": "object",
+      "required": ["id", "title", "system_id"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9.-]*$"},
+        "title": {"type": "string", "minLength": 1},
+        "system_id": {"type": "string", "minLength": 1},
+        "aliases": {"type": "array", "items": {"type": "string"}},
+        "external_references": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "roms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "primary_hash", "hashes", "telemetry_layout_id", "verification_state"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "label": {"type": "string"},
+          "primary_hash": {
+            "type": "object",
+            "required": ["algorithm", "value"],
+            "properties": {
+              "algorithm": {"enum": ["crc32", "md5", "sha1"]},
+              "value": {"type": "string"}
+            }
+          },
+          "hashes": {
+            "type": "object",
+            "properties": {
+              "crc32": {"type": "array", "items": {"type": "string"}},
+              "md5": {"type": "array", "items": {"type": "string"}},
+              "sha1": {"type": "array", "items": {"type": "string"}}
+            }
+          },
+          "telemetry_layout_id": {"type": "string", "minLength": 1},
+          "verification_state": {"enum": ["verified", "expected", "experimental", "broken", "unverified"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "telemetry_layouts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "verification_state", "properties"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "verification_state": {"enum": ["verified", "expected", "experimental", "broken", "unverified"]},
+          "properties": {"type": "array", "items": {"type": "object"}},
+          "derived_properties": {"type": "array", "items": {"type": "object"}},
+          "events": {"type": "array", "items": {"type": "object"}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "events": {"type": "array", "items": {"type": "object"}},
+    "provenance": {"type": "object"}
+  },
+  "additionalProperties": false
 }

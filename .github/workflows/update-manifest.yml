@@ -1,0 +1,35 @@
+name: Update RetroTelemetry Manifest
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'games/**/*.json'
+      - 'schemas/**'
+      - 'tools/**'
+
+permissions:
+  contents: write
+
+jobs:
+  update-manifest:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate definitions
+        run: python tools/retrotelemetry.py validate
+      - name: Generate manifest
+        run: python tools/retrotelemetry.py generate
+      - name: Commit manifest when changed
+        run: |
+          git diff --quiet -- manifest.json || (
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add manifest.json
+            git commit -m 'chore: regenerate RetroTelemetry manifest'
+            git push
+          )

@@ -1,9 +1,25 @@
 {
   "format": "RetroTelemetry Manifest",
-  "schema_version": 1,
+  "game_count": 1,
+  "generated_at": "2026-07-30T08:19:10Z",
+  "hashes": {
+    "crc32": {
+      "F9394E97": {
+        "definition_version": 1,
+        "game_id": "mega-drive.sonic-the-hedgehog",
+        "game_title": "Sonic the Hedgehog",
+        "path": "games/mega-drive/sonic-the-hedgehog.json",
+        "rom_id": "revision-0-usa-europe-japan",
+        "rom_label": "Revision 0 (USA/Europe/Japan)",
+        "system_id": "mega_drive",
+        "telemetry_layout_id": "sonic-1-mega-drive-revision-0",
+        "verification_state": "verified"
+      }
+    },
+    "md5": {},
+    "sha1": {}
+  },
   "manifest_version": 1,
-  "generated_at": null,
-  "game_count": 0,
-  "rom_count": 0,
-  "roms": {}
+  "rom_count": 1,
+  "schema_version": 1
 }
