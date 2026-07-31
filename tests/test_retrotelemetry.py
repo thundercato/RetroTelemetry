@@ -40,8 +40,13 @@ class RetroTelemetryManifestTests(unittest.TestCase):
             self.assertEqual(data["roms"][0]["verification_state"], "experimental")
             self.assertEqual(data["telemetry_layouts"][0]["verification_state"], "experimental")
             self.assertTrue(data["roms"][0]["hashes"]["sha1"])
-            self.assertEqual(data["provenance"]["sources"][0]["name"], "Stable-Retro")
-            self.assertTrue(all(item["verification_state"] == "experimental" for item in data["telemetry_layouts"][0]["properties"]))
+            self.assertIn("Stable-Retro", [source["name"] for source in data["provenance"]["sources"]])
+            self.assertTrue(
+                all(
+                    item["verification_state"] in {"experimental", "unverified"}
+                    for item in data["telemetry_layouts"][0]["properties"]
+                )
+            )
 
     def test_stable_retro_24_bit_work_ram_is_converted_to_core_ram(self):
         data = json.loads((ROOT / "games" / "mega-drive" / "sonic-the-hedgehog-2.json").read_text(encoding="utf-8"))
@@ -52,6 +57,27 @@ class RetroTelemetryManifestTests(unittest.TestCase):
         self.assertEqual(rings["address"], "0xFE20")
         self.assertEqual(rings["memory_domain"], "core_ram")
         self.assertEqual(rings["canonical_id"], "player.1.collectable.primary")
+
+    def test_golden_axe_research_layout_replaces_the_unsafe_score_import(self):
+        data = json.loads((ROOT / "games" / "mega-drive" / "golden-axe.json").read_text(encoding="utf-8"))
+        properties = data["telemetry_layouts"][0]["properties"]
+        by_id = {item["id"]: item for item in properties}
+
+        self.assertEqual(data["definition_version"], 2)
+        self.assertEqual(len(properties), 13)
+        self.assertNotIn("score", by_id)
+        self.assertEqual(by_id["duel_timer"]["address"], "0xFE72")
+        self.assertEqual(by_id["duel_timer"]["canonical_id"], "game.duel.timer")
+        self.assertEqual(by_id["player_1_lives"]["address"], "0xFE7C")
+        self.assertEqual(by_id["player_2_lives"]["address"], "0xFE8C")
+        self.assertEqual(by_id["player_1_health"]["address"], "0xFE7E")
+        self.assertEqual(by_id["player_2_health"]["address"], "0xFE8E")
+        self.assertEqual(by_id["player_1_magic"]["address"], "0xFE80")
+        self.assertEqual(by_id["player_2_magic"]["address"], "0xFE90")
+
+        for item in properties:
+            self.assertEqual(item["memory_domain"], "core_ram")
+            self.assertIn(item["verification_state"], {"experimental", "unverified"})
 
     def test_multiple_hashes_can_reference_one_layout(self):
         data = json.loads((ROOT / "games" / "mega-drive" / "sonic-the-hedgehog.json").read_text(encoding="utf-8"))

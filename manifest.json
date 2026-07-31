@@ -1,7 +1,7 @@
 {
   "format": "RetroTelemetry Manifest",
   "game_count": 51,
-  "generated_at": "2026-07-31T09:22:20Z",
+  "generated_at": "2026-07-31T10:09:49Z",
   "hashes": {
     "crc32": {
       "F9394E97": {
@@ -107,14 +107,14 @@
         "verification_state": "experimental"
       },
       "2CE17105CA916FBBE3AC9AE3A2086E66B07996DD": {
-        "definition_version": 1,
+        "definition_version": 2,
         "game_id": "mega-drive.golden-axe",
         "game_title": "Golden Axe",
         "path": "games/mega-drive/golden-axe.json",
         "rom_id": "stable-retro-genesis-integration",
         "rom_label": "Stable-Retro Genesis integration ROM",
         "system_id": "mega_drive",
-        "telemetry_layout_id": "golden-axe-stable-retro-experimental",
+        "telemetry_layout_id": "golden-axe-researched-experimental",
         "verification_state": "experimental"
       },
       "2F6F5165D3AA40213C8020149D5E4B29F86DFBA8": {
