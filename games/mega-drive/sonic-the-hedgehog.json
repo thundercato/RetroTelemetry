@@ -67,6 +67,7 @@
           "category": "Game State",
           "description": "Game Mode. Sonic 1 RAM variable at $FFFFF600 converted to READ_CORE_RAM offset 0xF600. Expected canonical meaning: game.mode. Unknown values are preserved numerically. Needs runtime validation in EDAS.",
           "id": "game_mode",
+          "canonical_id": "game.mode",
           "edas_alias": "game_mode",
           "friendly_name": "Game Mode",
           "verification_state": "expected"
@@ -82,6 +83,7 @@
           "category": "Game State",
           "description": "Paused. Sonic 1 RAM variable at $FFFFF63A converted to READ_CORE_RAM offset 0xF63A. Zero decodes false; any non-zero value decodes true. Expected canonical meaning: game.paused. Needs runtime validation in EDAS.",
           "id": "paused",
+          "canonical_id": "game.paused",
           "edas_alias": "paused",
           "friendly_name": "Paused",
           "verification_state": "expected"
@@ -106,6 +108,7 @@
           "category": "Game State",
           "description": "Zone. Sonic 1 stores this as a zero-based zone index: raw 0 is Zone 1 / Green Hill Zone, raw 1 is Zone 2 / Labyrinth Zone, raw 2 is Zone 3 / Marble Zone, raw 3 is Zone 4 / Star Light Zone, raw 4 is Zone 5 / Spring Yard Zone and raw 5 is Zone 6 / Scrap Brain Zone. Sonic 1 RAM variable at $FFFFFE10 converted to READ_CORE_RAM offset 0xFE10. Closest expected canonical meaning: game.level.",
           "id": "zone",
+          "canonical_id": "game.level",
           "edas_alias": "zone",
           "friendly_name": "Zone",
           "verification_state": "expected"
@@ -126,6 +129,7 @@
           "category": "Game State",
           "description": "Act. Sonic 1 stores this as a zero-based act index: raw 0 is Act 1, raw 1 is Act 2, and raw 2 is Act 3. Sonic 1 RAM variable at $FFFFFE11 converted to READ_CORE_RAM offset 0xFE11. Expected canonical meaning where supported: game.stage.",
           "id": "act",
+          "canonical_id": "game.stage",
           "edas_alias": "act",
           "friendly_name": "Act",
           "verification_state": "expected"
@@ -146,6 +150,7 @@
           "category": "Game State",
           "description": "Boss Status. Sonic 1 RAM variable at $FFFFF7A7 converted to READ_CORE_RAM offset 0xF7A7. Needs runtime validation in EDAS.",
           "id": "boss_status",
+          "canonical_id": "game.boss.status",
           "edas_alias": "boss_status",
           "friendly_name": "Boss Status",
           "verification_state": "expected"
@@ -161,6 +166,7 @@
           "category": "Game State",
           "description": "Giant Ring Collected. Sonic 1 RAM variable at $FFFFF7CD converted to READ_CORE_RAM offset 0xF7CD. Zero decodes false; any non-zero value decodes true. Needs runtime validation in EDAS.",
           "id": "giant_ring_collected",
+          "canonical_id": "player.1.collectable.special.collected",
           "edas_alias": "giant_ring_collected",
           "friendly_name": "Giant Ring Collected",
           "verification_state": "expected"
@@ -176,6 +182,7 @@
           "category": "Player Statistics",
           "description": "Lives. Sonic 1 RAM variable at $FFFFFE12 converted to READ_CORE_RAM offset 0xFE12. Expected canonical meaning: player.1.lives. Needs runtime validation in EDAS.",
           "id": "player_1_lives",
+          "canonical_id": "player.1.lives",
           "edas_alias": "player_1_lives",
           "friendly_name": "Player 1 Lives",
           "verification_state": "expected"
@@ -191,6 +198,9 @@
           "category": "Player Statistics",
           "description": "Rings. Sonic 1 RAM variable at $FFFFFE20 converted to READ_CORE_RAM offset 0xFE20. RetroArch READ_CORE_RAM for this Mega Drive mapping returns 16-bit RAM pairs byte-swapped, represented by byte_order=swap16; after block normalisation this decodes as a big-endian word. Expected ordinary range 0-999; raw value is not clamped. Needs runtime validation in EDAS.",
           "id": "rings",
+          "canonical_id": "player.1.collectable.primary",
+          "minimum": 0,
+          "maximum": 999,
           "edas_alias": "rings",
           "friendly_name": "Rings",
           "verification_state": "expected"
@@ -207,6 +217,7 @@
           "category": "Player Statistics",
           "description": "Score. Sonic 1 RAM variable at $FFFFFE26 converted to READ_CORE_RAM offset 0xFE26. Sonic stores score internally in 10-point units, so EDAS scales the raw value by 10 to match the in-game HUD score. Expected canonical meaning: player.1.score. Needs runtime validation in EDAS.",
           "id": "player_1_score",
+          "canonical_id": "player.1.score",
           "edas_alias": "player_1_score",
           "friendly_name": "Player 1 Score",
           "verification_state": "expected"
@@ -222,6 +233,7 @@
           "category": "Player Statistics",
           "description": "Continues. Sonic 1 RAM variable at $FFFFFE18 converted to READ_CORE_RAM offset 0xFE18. Needs runtime validation in EDAS.",
           "id": "continues",
+          "canonical_id": "player.1.continues",
           "edas_alias": "continues",
           "friendly_name": "Continues",
           "verification_state": "expected"
@@ -237,6 +249,9 @@
           "category": "Player Statistics",
           "description": "Chaos Emeralds. Sonic 1 RAM variable at $FFFFFE57 converted to READ_CORE_RAM offset 0xFE57. Expected ordinary range 0-6; raw value is not clamped. Needs runtime validation in EDAS.",
           "id": "chaos_emeralds",
+          "canonical_id": "player.1.collectable.chaos_emeralds",
+          "minimum": 0,
+          "maximum": 6,
           "edas_alias": "chaos_emeralds",
           "friendly_name": "Chaos Emeralds",
           "verification_state": "expected"
@@ -252,6 +267,7 @@
           "category": "Player Statistics",
           "description": "Shield. Sonic 1 RAM variable at $FFFFFE2C converted to READ_CORE_RAM offset 0xFE2C. Zero decodes false; any non-zero value decodes true. Needs runtime validation in EDAS.",
           "id": "shield_active",
+          "canonical_id": "player.1.powerup.shield.active",
           "edas_alias": "shield_active",
           "friendly_name": "Shield Active",
           "verification_state": "expected"
@@ -267,6 +283,7 @@
           "category": "Player Statistics",
           "description": "Invincibility. Sonic 1 RAM variable at $FFFFFE2D converted to READ_CORE_RAM offset 0xFE2D. Zero decodes false; any non-zero value decodes true. Needs runtime validation in EDAS.",
           "id": "invincibility_active",
+          "canonical_id": "player.1.powerup.invincibility.active",
           "edas_alias": "invincibility_active",
           "friendly_name": "Invincibility Active",
           "verification_state": "expected"
@@ -282,6 +299,7 @@
           "category": "Player Statistics",
           "description": "Speed Shoes. Sonic 1 RAM variable at $FFFFFE2E converted to READ_CORE_RAM offset 0xFE2E. Zero decodes false; any non-zero value decodes true. Needs runtime validation in EDAS.",
           "id": "speed_shoes_active",
+          "canonical_id": "player.1.powerup.speed_shoes.active",
           "edas_alias": "speed_shoes_active",
           "friendly_name": "Speed Shoes Active",
           "verification_state": "expected"
@@ -297,6 +315,8 @@
           "category": "Player Statistics",
           "description": "Underwater Air. Sonic 1 RAM variable at $FFFFFE14 converted to READ_CORE_RAM offset 0xFE14. Do not assume this is directly measured in seconds until runtime-verified. Needs runtime validation in EDAS.",
           "id": "underwater_air",
+          "canonical_id": "player.1.air",
+          "notes": "Only meaningful while Sonic is underwater; the displayed unit needs runtime confirmation.",
           "edas_alias": "underwater_air",
           "friendly_name": "Underwater Air",
           "verification_state": "expected"
@@ -312,6 +332,7 @@
           "category": "Player Statistics",
           "description": "Time Over. Sonic 1 RAM variable at $FFFFFE1A converted to READ_CORE_RAM offset 0xFE1A. Zero decodes false; any non-zero value decodes true. Needs runtime validation in EDAS.",
           "id": "time_over",
+          "canonical_id": "game.time_over",
           "edas_alias": "time_over",
           "friendly_name": "Time Over",
           "verification_state": "expected"
@@ -327,6 +348,8 @@
           "category": "Player Statistics",
           "description": "Last Checkpoint. Sonic 1 RAM variable at $FFFFFE30 converted to READ_CORE_RAM offset 0xFE30. Needs runtime validation in EDAS.",
           "id": "last_checkpoint",
+          "canonical_id": "game.checkpoint.last",
+          "notes": "Zero may mean that no checkpoint has been activated in the current act.",
           "edas_alias": "last_checkpoint",
           "friendly_name": "Last Checkpoint",
           "verification_state": "expected"
@@ -342,6 +365,9 @@
           "category": "Level Timer",
           "description": "Level Time Minutes. Sonic 1 RAM variable at $FFFFFE23 converted to READ_CORE_RAM offset 0xFE23. Needs runtime validation in EDAS.",
           "id": "level_time_minutes",
+          "canonical_id": "game.timer.minutes",
+          "minimum": 0,
+          "maximum": 9,
           "edas_alias": "level_time_minutes",
           "friendly_name": "Level Time Minutes",
           "verification_state": "expected"
@@ -357,6 +383,9 @@
           "category": "Level Timer",
           "description": "Level Time Seconds. Sonic 1 RAM variable at $FFFFFE24 converted to READ_CORE_RAM offset 0xFE24. Needs runtime validation in EDAS.",
           "id": "level_time_seconds",
+          "canonical_id": "game.timer.seconds",
+          "minimum": 0,
+          "maximum": 59,
           "edas_alias": "level_time_seconds",
           "friendly_name": "Level Time Seconds",
           "verification_state": "expected"
@@ -372,6 +401,8 @@
           "category": "Level Timer",
           "description": "Level Time Subseconds. Sonic 1 RAM variable at $FFFFFE25 converted to READ_CORE_RAM offset 0xFE25. This is the game's internal sub-second/centisecond field; exact real-time precision still needs runtime verification.",
           "id": "level_time_subseconds",
+          "canonical_id": "game.timer.subseconds",
+          "notes": "Sub-second field; do not assume a real-time unit until verified against the HUD.",
           "edas_alias": "level_time_subseconds",
           "friendly_name": "Level Time Subseconds",
           "verification_state": "expected"
@@ -387,6 +418,7 @@
           "category": "Sonic Movement",
           "description": "Sonic X Position. Sonic/player object RAM at $FFFFD008 converted to READ_CORE_RAM offset 0xD008. Expected canonical meaning where supported: player.1.position.x. Needs runtime validation in EDAS.",
           "id": "player_1_position_x",
+          "canonical_id": "player.1.position.x",
           "edas_alias": "player_1_position_x",
           "friendly_name": "Player 1 Position X",
           "verification_state": "expected"
@@ -402,6 +434,7 @@
           "category": "Sonic Movement",
           "description": "Sonic Y Position. Sonic/player object RAM at $FFFFD00C converted to READ_CORE_RAM offset 0xD00C. Expected canonical meaning where supported: player.1.position.y. Needs runtime validation in EDAS.",
           "id": "player_1_position_y",
+          "canonical_id": "player.1.position.y",
           "edas_alias": "player_1_position_y",
           "friendly_name": "Player 1 Position Y",
           "verification_state": "expected"
@@ -417,6 +450,8 @@
           "category": "Sonic Movement",
           "description": "Sonic X Velocity. Sonic/player object RAM at $FFFFD010 converted to READ_CORE_RAM offset 0xD010. Expected canonical meaning where supported: player.1.velocity.x. Needs runtime validation in EDAS.",
           "id": "player_1_velocity_x",
+          "canonical_id": "player.1.velocity.x",
+          "notes": "Signed movement value; negative values indicate leftward movement.",
           "edas_alias": "player_1_velocity_x",
           "friendly_name": "Player 1 Velocity X",
           "verification_state": "expected"
@@ -432,6 +467,8 @@
           "category": "Sonic Movement",
           "description": "Sonic Y Velocity. Sonic/player object RAM at $FFFFD012 converted to READ_CORE_RAM offset 0xD012. Expected canonical meaning where supported: player.1.velocity.y. Needs runtime validation in EDAS.",
           "id": "player_1_velocity_y",
+          "canonical_id": "player.1.velocity.y",
+          "notes": "Signed movement value; sign orientation needs runtime confirmation.",
           "edas_alias": "player_1_velocity_y",
           "friendly_name": "Player 1 Velocity Y",
           "verification_state": "expected"
@@ -447,6 +484,8 @@
           "category": "Sonic Movement",
           "description": "Sonic Inertia. Sonic/player object RAM at $FFFFD014 converted to READ_CORE_RAM offset 0xD014. Needs runtime validation in EDAS.",
           "id": "player_1_inertia",
+          "canonical_id": "player.1.movement.inertia",
+          "notes": "Signed ground-speed/inertia value; it can differ from instantaneous X velocity while Sonic is on a slope.",
           "edas_alias": "player_1_inertia",
           "friendly_name": "Player 1 Inertia",
           "verification_state": "expected"
