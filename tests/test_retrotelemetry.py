@@ -17,7 +17,7 @@ class RetroTelemetryManifestTests(unittest.TestCase):
         manifest = build_manifest(ROOT, generated_at="2026-07-30T00:00:00Z")
         entry = manifest["hashes"]["crc32"]["F9394E97"]
 
-        self.assertEqual(manifest["game_count"], 1)
+        self.assertEqual(manifest["game_count"], 51)
         self.assertEqual(entry["game_id"], "mega-drive.sonic-the-hedgehog")
         self.assertEqual(entry["telemetry_layout_id"], "sonic-1-mega-drive-revision-0")
         self.assertEqual(entry["path"], "games/mega-drive/sonic-the-hedgehog.json")
@@ -29,6 +29,29 @@ class RetroTelemetryManifestTests(unittest.TestCase):
         self.assertTrue(all(item.get("canonical_id") for item in properties))
         self.assertEqual(next(item for item in properties if item["id"] == "rings")["canonical_id"], "player.1.collectable.primary")
         self.assertEqual(next(item for item in properties if item["id"] == "zone")["canonical_id"], "game.level")
+
+    def test_researched_mega_drive_batch_is_experimental_and_traceable(self):
+        definitions = sorted((ROOT / "games" / "mega-drive").glob("*.json"))
+        experimental = [path for path in definitions if path.name != "sonic-the-hedgehog.json"]
+
+        self.assertEqual(len(experimental), 50)
+        for path in experimental:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            self.assertEqual(data["roms"][0]["verification_state"], "experimental")
+            self.assertEqual(data["telemetry_layouts"][0]["verification_state"], "experimental")
+            self.assertTrue(data["roms"][0]["hashes"]["sha1"])
+            self.assertEqual(data["provenance"]["sources"][0]["name"], "Stable-Retro")
+            self.assertTrue(all(item["verification_state"] == "experimental" for item in data["telemetry_layouts"][0]["properties"]))
+
+    def test_stable_retro_24_bit_work_ram_is_converted_to_core_ram(self):
+        data = json.loads((ROOT / "games" / "mega-drive" / "sonic-the-hedgehog-2.json").read_text(encoding="utf-8"))
+        properties = data["telemetry_layouts"][0]["properties"]
+        rings = next(item for item in properties if item["id"] == "rings")
+
+        self.assertEqual(rings["source_address"], "0x00FFFE20")
+        self.assertEqual(rings["address"], "0xFE20")
+        self.assertEqual(rings["memory_domain"], "core_ram")
+        self.assertEqual(rings["canonical_id"], "player.1.collectable.primary")
 
     def test_multiple_hashes_can_reference_one_layout(self):
         data = json.loads((ROOT / "games" / "mega-drive" / "sonic-the-hedgehog.json").read_text(encoding="utf-8"))

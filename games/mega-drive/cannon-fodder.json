@@ -1,0 +1,120 @@
+{
+  "format": "RetroTelemetry Game Definition",
+  "schema_version": 1,
+  "definition_version": 1,
+  "game": {
+    "id": "mega-drive.cannon-fodder",
+    "title": "Cannon Fodder",
+    "system_id": "mega_drive",
+    "aliases": [
+      "Cannon Fodder"
+    ]
+  },
+  "roms": [
+    {
+      "id": "stable-retro-genesis-integration",
+      "label": "Stable-Retro Genesis integration ROM",
+      "primary_hash": {
+        "algorithm": "sha1",
+        "value": "CED5F0967E30C3B4C4C2A81007A7DB2910B1885D"
+      },
+      "hashes": {
+        "crc32": [],
+        "md5": [],
+        "sha1": [
+          "CED5F0967E30C3B4C4C2A81007A7DB2910B1885D"
+        ]
+      },
+      "telemetry_layout_id": "cannon-fodder-stable-retro-experimental",
+      "verification_state": "experimental",
+      "compatibility_notes": "This SHA-1 identifies the Stable-Retro integration input. Its region and revision are not asserted here; validate against the locally loaded ROM before relying on any value."
+    }
+  ],
+  "telemetry_layouts": [
+    {
+      "id": "cannon-fodder-stable-retro-experimental",
+      "title": "Cannon Fodder Stable-Retro experimental layout",
+      "verification_state": "experimental",
+      "polling": {
+        "recommended_interval_ms": 100,
+        "memory_domains": [
+          "core_ram"
+        ]
+      },
+      "properties": [
+        {
+          "address": "0x211C",
+          "length": 2,
+          "value_type": "int16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'enemies_killed'; source address 0x00FF211C converted to core_ram offset 0x211C. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "enemies_killed",
+          "edas_alias": "enemies_killed",
+          "friendly_name": "Enemies killed",
+          "source_label": "enemies_killed",
+          "source_type": ">i2",
+          "source_address": "0x00FF211C",
+          "verification_state": "experimental"
+        },
+        {
+          "address": "0x2990",
+          "length": 1,
+          "value_type": "uint8",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'own_soldiers_alive'; source address 0x00FF2990 converted to core_ram offset 0x2990. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "own_soldiers_alive",
+          "edas_alias": "own_soldiers_alive",
+          "friendly_name": "Own soldiers alive",
+          "source_label": "own_soldiers_alive",
+          "source_type": "|u1",
+          "source_address": "0x00FF2990",
+          "verification_state": "experimental"
+        },
+        {
+          "address": "0x1D78",
+          "length": 2,
+          "value_type": "uint16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'recruits_remaining'; source address 0x00FF1D78 converted to core_ram offset 0x1D78. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "recruits_remaining",
+          "edas_alias": "recruits_remaining",
+          "friendly_name": "Recruits remaining",
+          "source_label": "recruits_remaining",
+          "source_type": ">u2",
+          "source_address": "0x00FF1D78",
+          "verification_state": "experimental"
+        }
+      ],
+      "derived_properties": [],
+      "events": []
+    }
+  ],
+  "provenance": {
+    "summary": "Experimental import from publicly available Stable-Retro integration metadata. No ROM content is included. Every address, type, layout and ROM identity still requires EDAS runtime validation.",
+    "sources": [
+      {
+        "name": "Stable-Retro",
+        "repository": "Farama-Foundation/stable-retro",
+        "url": "https://github.com/Farama-Foundation/stable-retro",
+        "source_path": "stable_retro/data/stable/CannonFodder-Genesis-v0",
+        "data_file": "stable_retro/data/stable/CannonFodder-Genesis-v0/data.json",
+        "rom_hash_file": "stable_retro/data/stable/CannonFodder-Genesis-v0/rom.sha",
+        "accessed_at": "2026-07-31",
+        "address_conversion": "Stable-Retro Genesis source addresses in the 24-bit 0xFF0000-0xFFFFFF work-RAM range are represented as 64 KiB core_ram offsets by subtracting 0xFF0000. The equivalent sign-extended 68000 range is 0xFFFF0000-0xFFFFFFFF. The EDAS Mega Drive reader convention uses byte_order swap16 and big endian.",
+        "limitations": "Stable-Retro source labels and types are useful technical evidence but are not a verification claim for this exact ROM, emulator core, or EDAS runtime."
+      }
+    ]
+  }
+}

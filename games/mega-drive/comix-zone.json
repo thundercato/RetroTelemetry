@@ -1,0 +1,160 @@
+{
+  "format": "RetroTelemetry Game Definition",
+  "schema_version": 1,
+  "definition_version": 1,
+  "game": {
+    "id": "mega-drive.comix-zone",
+    "title": "Comix Zone",
+    "system_id": "mega_drive",
+    "aliases": [
+      "Comix Zone"
+    ]
+  },
+  "roms": [
+    {
+      "id": "stable-retro-genesis-integration",
+      "label": "Stable-Retro Genesis integration ROM",
+      "primary_hash": {
+        "algorithm": "sha1",
+        "value": "E8747EEFDF61172BE9DA8787BA5BE447EC73180F"
+      },
+      "hashes": {
+        "crc32": [],
+        "md5": [],
+        "sha1": [
+          "E8747EEFDF61172BE9DA8787BA5BE447EC73180F"
+        ]
+      },
+      "telemetry_layout_id": "comix-zone-stable-retro-experimental",
+      "verification_state": "experimental",
+      "compatibility_notes": "This SHA-1 identifies the Stable-Retro integration input. Its region and revision are not asserted here; validate against the locally loaded ROM before relying on any value."
+    }
+  ],
+  "telemetry_layouts": [
+    {
+      "id": "comix-zone-stable-retro-experimental",
+      "title": "Comix Zone Stable-Retro experimental layout",
+      "verification_state": "experimental",
+      "polling": {
+        "recommended_interval_ms": 100,
+        "memory_domains": [
+          "core_ram"
+        ]
+      },
+      "properties": [
+        {
+          "address": "0xBF00",
+          "length": 2,
+          "value_type": "uint16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'combos'; source address 0x00FFBF00 converted to core_ram offset 0xBF00. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "combos",
+          "edas_alias": "combos",
+          "friendly_name": "Combos",
+          "source_label": "combos",
+          "source_type": ">u2",
+          "source_address": "0x00FFBF00",
+          "verification_state": "experimental",
+          "canonical_id": "player.1.combo.count"
+        },
+        {
+          "address": "0xBEF4",
+          "length": 2,
+          "value_type": "uint16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'finalscore'; source address 0x00FFBEF4 converted to core_ram offset 0xBEF4. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "finalscore",
+          "edas_alias": "finalscore",
+          "friendly_name": "Finalscore",
+          "source_label": "finalscore",
+          "source_type": ">u2",
+          "source_address": "0x00FFBEF4",
+          "verification_state": "experimental",
+          "canonical_id": "player.1.score"
+        },
+        {
+          "address": "0xBF02",
+          "length": 2,
+          "value_type": "uint16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'finishes'; source address 0x00FFBF02 converted to core_ram offset 0xBF02. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "finishes",
+          "edas_alias": "finishes",
+          "friendly_name": "Finishes",
+          "source_label": "finishes",
+          "source_type": ">u2",
+          "source_address": "0x00FFBF02",
+          "verification_state": "experimental"
+        },
+        {
+          "address": "0xBF04",
+          "length": 2,
+          "value_type": "int16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'health'; source address 0x00FFBF04 converted to core_ram offset 0xBF04. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "health",
+          "edas_alias": "health",
+          "friendly_name": "Health",
+          "source_label": "health",
+          "source_type": ">i2",
+          "source_address": "0x00FFBF04",
+          "verification_state": "experimental",
+          "canonical_id": "player.1.health"
+        },
+        {
+          "address": "0xBEF8",
+          "length": 2,
+          "value_type": "uint16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'progress'; source address 0x00FFBEF8 converted to core_ram offset 0xBEF8. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "progress",
+          "edas_alias": "progress",
+          "friendly_name": "Progress",
+          "source_label": "progress",
+          "source_type": ">u2",
+          "source_address": "0x00FFBEF8",
+          "verification_state": "experimental",
+          "canonical_id": "game.progress"
+        }
+      ],
+      "derived_properties": [],
+      "events": []
+    }
+  ],
+  "provenance": {
+    "summary": "Experimental import from publicly available Stable-Retro integration metadata. No ROM content is included. Every address, type, layout and ROM identity still requires EDAS runtime validation.",
+    "sources": [
+      {
+        "name": "Stable-Retro",
+        "repository": "Farama-Foundation/stable-retro",
+        "url": "https://github.com/Farama-Foundation/stable-retro",
+        "source_path": "stable_retro/data/stable/ComixZone-Genesis-v0",
+        "data_file": "stable_retro/data/stable/ComixZone-Genesis-v0/data.json",
+        "rom_hash_file": "stable_retro/data/stable/ComixZone-Genesis-v0/rom.sha",
+        "accessed_at": "2026-07-31",
+        "address_conversion": "Stable-Retro Genesis source addresses in the 24-bit 0xFF0000-0xFFFFFF work-RAM range are represented as 64 KiB core_ram offsets by subtracting 0xFF0000. The equivalent sign-extended 68000 range is 0xFFFF0000-0xFFFFFFFF. The EDAS Mega Drive reader convention uses byte_order swap16 and big endian.",
+        "limitations": "Stable-Retro source labels and types are useful technical evidence but are not a verification claim for this exact ROM, emulator core, or EDAS runtime."
+      }
+    ]
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "format": "RetroTelemetry Game Definition",
+  "schema_version": 1,
+  "definition_version": 1,
+  "game": {
+    "id": "mega-drive.ristar",
+    "title": "Ristar",
+    "system_id": "mega_drive",
+    "aliases": [
+      "Ristar"
+    ]
+  },
+  "roms": [
+    {
+      "id": "stable-retro-genesis-integration",
+      "label": "Stable-Retro Genesis integration ROM",
+      "primary_hash": {
+        "algorithm": "sha1",
+        "value": "1D15FF596DD4F3B2C1212A2E0C6E2B72F62C001E"
+      },
+      "hashes": {
+        "crc32": [],
+        "md5": [],
+        "sha1": [
+          "1D15FF596DD4F3B2C1212A2E0C6E2B72F62C001E"
+        ]
+      },
+      "telemetry_layout_id": "ristar-stable-retro-experimental",
+      "verification_state": "experimental",
+      "compatibility_notes": "This SHA-1 identifies the Stable-Retro integration input. Its region and revision are not asserted here; validate against the locally loaded ROM before relying on any value."
+    }
+  ],
+  "telemetry_layouts": [
+    {
+      "id": "ristar-stable-retro-experimental",
+      "title": "Ristar Stable-Retro experimental layout",
+      "verification_state": "experimental",
+      "polling": {
+        "recommended_interval_ms": 100,
+        "memory_domains": [
+          "core_ram"
+        ]
+      },
+      "properties": [
+        {
+          "address": "0xE578",
+          "length": 1,
+          "value_type": "int8",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'lives'; source address 0x00FFE578 converted to core_ram offset 0xE578. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "lives",
+          "edas_alias": "lives",
+          "friendly_name": "Lives",
+          "source_label": "lives",
+          "source_type": "|i1",
+          "source_address": "0x00FFE578",
+          "verification_state": "experimental",
+          "canonical_id": "player.1.lives"
+        },
+        {
+          "address": "0xE574",
+          "length": 4,
+          "value_type": "uint32",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'score'; source address 0x00FFE574 converted to core_ram offset 0xE574. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "score",
+          "edas_alias": "score",
+          "friendly_name": "Score",
+          "source_label": "score",
+          "source_type": ">u4",
+          "source_address": "0x00FFE574",
+          "verification_state": "experimental",
+          "canonical_id": "player.1.score"
+        }
+      ],
+      "derived_properties": [],
+      "events": []
+    }
+  ],
+  "provenance": {
+    "summary": "Experimental import from publicly available Stable-Retro integration metadata. No ROM content is included. Every address, type, layout and ROM identity still requires EDAS runtime validation.",
+    "sources": [
+      {
+        "name": "Stable-Retro",
+        "repository": "Farama-Foundation/stable-retro",
+        "url": "https://github.com/Farama-Foundation/stable-retro",
+        "source_path": "stable_retro/data/stable/Ristar-Genesis-v0",
+        "data_file": "stable_retro/data/stable/Ristar-Genesis-v0/data.json",
+        "rom_hash_file": "stable_retro/data/stable/Ristar-Genesis-v0/rom.sha",
+        "accessed_at": "2026-07-31",
+        "address_conversion": "Stable-Retro Genesis source addresses in the 24-bit 0xFF0000-0xFFFFFF work-RAM range are represented as 64 KiB core_ram offsets by subtracting 0xFF0000. The equivalent sign-extended 68000 range is 0xFFFF0000-0xFFFFFFFF. The EDAS Mega Drive reader convention uses byte_order swap16 and big endian.",
+        "limitations": "Stable-Retro source labels and types are useful technical evidence but are not a verification claim for this exact ROM, emulator core, or EDAS runtime."
+      }
+    ]
+  }
+}

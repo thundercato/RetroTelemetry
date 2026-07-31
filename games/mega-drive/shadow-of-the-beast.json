@@ -1,0 +1,127 @@
+{
+  "format": "RetroTelemetry Game Definition",
+  "schema_version": 1,
+  "definition_version": 1,
+  "game": {
+    "id": "mega-drive.shadow-of-the-beast",
+    "title": "Shadow of the Beast",
+    "system_id": "mega_drive",
+    "aliases": [
+      "Shadow of the Beast"
+    ]
+  },
+  "roms": [
+    {
+      "id": "stable-retro-genesis-integration",
+      "label": "Stable-Retro Genesis integration ROM",
+      "primary_hash": {
+        "algorithm": "sha1",
+        "value": "2F6F5165D3AA40213C8020149D5E4B29F86DFBA8"
+      },
+      "hashes": {
+        "crc32": [],
+        "md5": [],
+        "sha1": [
+          "2F6F5165D3AA40213C8020149D5E4B29F86DFBA8"
+        ]
+      },
+      "telemetry_layout_id": "shadow-of-the-beast-stable-retro-experimental",
+      "verification_state": "experimental",
+      "compatibility_notes": "This SHA-1 identifies the Stable-Retro integration input. Its region and revision are not asserted here; validate against the locally loaded ROM before relying on any value."
+    }
+  ],
+  "telemetry_layouts": [
+    {
+      "id": "shadow-of-the-beast-stable-retro-experimental",
+      "title": "Shadow of the Beast Stable-Retro experimental layout",
+      "verification_state": "experimental",
+      "polling": {
+        "recommended_interval_ms": 100,
+        "memory_domains": [
+          "core_ram"
+        ]
+      },
+      "properties": [
+        {
+          "address": "0x1A17",
+          "length": 1,
+          "value_type": "uint8",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'health'; source address 0x00FF1A17 converted to core_ram offset 0x1A17. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "health",
+          "edas_alias": "health",
+          "friendly_name": "Health",
+          "source_label": "health",
+          "source_type": "|u1",
+          "source_address": "0x00FF1A17",
+          "verification_state": "experimental",
+          "canonical_id": "player.1.health"
+        },
+        {
+          "address": "0x0460",
+          "length": 2,
+          "value_type": "uint16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'progress'; source address 0x00FF0460 converted to core_ram offset 0x0460. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "progress",
+          "edas_alias": "progress",
+          "friendly_name": "Progress",
+          "source_label": "progress",
+          "source_type": ">d2",
+          "source_address": "0x00FF0460",
+          "verification_state": "experimental",
+          "canonical_id": "game.progress",
+          "encoding": "bcd",
+          "notes": "Stable-Retro source type is >d2; bcd decoding requires runtime confirmation."
+        },
+        {
+          "address": "0x1A0C",
+          "length": 6,
+          "value_type": "uint48",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'score'; source address 0x00FF1A0C converted to core_ram offset 0x1A0C. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "score",
+          "edas_alias": "score",
+          "friendly_name": "Score",
+          "source_label": "score",
+          "source_type": ">n6",
+          "source_address": "0x00FF1A0C",
+          "verification_state": "experimental",
+          "canonical_id": "player.1.score",
+          "encoding": "bcd_low_nybble",
+          "notes": "Stable-Retro source type is >n6; bcd low nybble decoding requires runtime confirmation."
+        }
+      ],
+      "derived_properties": [],
+      "events": []
+    }
+  ],
+  "provenance": {
+    "summary": "Experimental import from publicly available Stable-Retro integration metadata. No ROM content is included. Every address, type, layout and ROM identity still requires EDAS runtime validation.",
+    "sources": [
+      {
+        "name": "Stable-Retro",
+        "repository": "Farama-Foundation/stable-retro",
+        "url": "https://github.com/Farama-Foundation/stable-retro",
+        "source_path": "stable_retro/data/stable/ShadowOfTheBeast-Genesis-v0",
+        "data_file": "stable_retro/data/stable/ShadowOfTheBeast-Genesis-v0/data.json",
+        "rom_hash_file": "stable_retro/data/stable/ShadowOfTheBeast-Genesis-v0/rom.sha",
+        "accessed_at": "2026-07-31",
+        "address_conversion": "Stable-Retro Genesis source addresses in the 24-bit 0xFF0000-0xFFFFFF work-RAM range are represented as 64 KiB core_ram offsets by subtracting 0xFF0000. The equivalent sign-extended 68000 range is 0xFFFF0000-0xFFFFFFFF. The EDAS Mega Drive reader convention uses byte_order swap16 and big endian.",
+        "limitations": "Stable-Retro source labels and types are useful technical evidence but are not a verification claim for this exact ROM, emulator core, or EDAS runtime."
+      }
+    ]
+  }
+}

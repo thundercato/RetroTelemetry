@@ -1,0 +1,237 @@
+{
+  "format": "RetroTelemetry Game Definition",
+  "schema_version": 1,
+  "definition_version": 1,
+  "game": {
+    "id": "mega-drive.mortal-kombat-ii",
+    "title": "Mortal Kombat II",
+    "system_id": "mega_drive",
+    "aliases": [
+      "Mortal Kombat II"
+    ]
+  },
+  "roms": [
+    {
+      "id": "stable-retro-genesis-integration",
+      "label": "Stable-Retro Genesis integration ROM",
+      "primary_hash": {
+        "algorithm": "sha1",
+        "value": "AF6D2DB16F2B76940FF5A9738F1E00C4E7EA485E"
+      },
+      "hashes": {
+        "crc32": [],
+        "md5": [],
+        "sha1": [
+          "AF6D2DB16F2B76940FF5A9738F1E00C4E7EA485E"
+        ]
+      },
+      "telemetry_layout_id": "mortal-kombat-ii-stable-retro-experimental",
+      "verification_state": "experimental",
+      "compatibility_notes": "This SHA-1 identifies the Stable-Retro integration input. Its region and revision are not asserted here; validate against the locally loaded ROM before relying on any value."
+    }
+  ],
+  "telemetry_layouts": [
+    {
+      "id": "mortal-kombat-ii-stable-retro-experimental",
+      "title": "Mortal Kombat II Stable-Retro experimental layout",
+      "verification_state": "experimental",
+      "polling": {
+        "recommended_interval_ms": 100,
+        "memory_domains": [
+          "core_ram"
+        ]
+      },
+      "properties": [
+        {
+          "address": "0xB713",
+          "length": 1,
+          "value_type": "uint8",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'enemy_health'; source address 0x00FFB713 converted to core_ram offset 0xB713. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "enemy_health",
+          "edas_alias": "enemy_health",
+          "friendly_name": "Enemy health",
+          "source_label": "enemy_health",
+          "source_type": "|u1",
+          "source_address": "0x00FFB713",
+          "verification_state": "experimental",
+          "canonical_id": "player.2.health"
+        },
+        {
+          "address": "0xEEAB",
+          "length": 1,
+          "value_type": "uint8",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'enemy_rounds_won'; source address 0x00FFEEAB converted to core_ram offset 0xEEAB. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "enemy_rounds_won",
+          "edas_alias": "enemy_rounds_won",
+          "friendly_name": "Enemy rounds won",
+          "source_label": "enemy_rounds_won",
+          "source_type": "|u1",
+          "source_address": "0x00FFEEAB",
+          "verification_state": "experimental",
+          "canonical_id": "player.2.rounds_won"
+        },
+        {
+          "address": "0xB623",
+          "length": 1,
+          "value_type": "uint8",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'health'; source address 0x00FFB623 converted to core_ram offset 0xB623. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "health",
+          "edas_alias": "health",
+          "friendly_name": "Health",
+          "source_label": "health",
+          "source_type": "|u1",
+          "source_address": "0x00FFB623",
+          "verification_state": "experimental",
+          "canonical_id": "player.1.health"
+        },
+        {
+          "address": "0xEEA9",
+          "length": 1,
+          "value_type": "uint8",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'rounds_won'; source address 0x00FFEEA9 converted to core_ram offset 0xEEA9. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "rounds_won",
+          "edas_alias": "rounds_won",
+          "friendly_name": "Rounds won",
+          "source_label": "rounds_won",
+          "source_type": "|u1",
+          "source_address": "0x00FFEEA9",
+          "verification_state": "experimental",
+          "canonical_id": "player.1.rounds_won"
+        },
+        {
+          "address": "0xEEA4",
+          "length": 1,
+          "value_type": "uint8",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'wins'; source address 0x00FFEEA4 converted to core_ram offset 0xEEA4. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "wins",
+          "edas_alias": "wins",
+          "friendly_name": "Wins",
+          "source_label": "wins",
+          "source_type": "|d1",
+          "source_address": "0x00FFEEA4",
+          "verification_state": "experimental",
+          "canonical_id": "player.1.wins",
+          "encoding": "bcd",
+          "notes": "Stable-Retro source type is |d1; bcd decoding requires runtime confirmation."
+        },
+        {
+          "address": "0xB6C8",
+          "length": 2,
+          "value_type": "uint16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'x_position'; source address 0x00FFB6C8 converted to core_ram offset 0xB6C8. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "x_position",
+          "edas_alias": "x_position",
+          "friendly_name": "X position",
+          "source_label": "x_position",
+          "source_type": ">u2",
+          "source_address": "0x00FFB6C8",
+          "verification_state": "experimental",
+          "canonical_id": "player.1.position.x"
+        },
+        {
+          "address": "0xB7B8",
+          "length": 2,
+          "value_type": "uint16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'enemy_x_position'; source address 0x00FFB7B8 converted to core_ram offset 0xB7B8. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "enemy_x_position",
+          "edas_alias": "enemy_x_position",
+          "friendly_name": "Enemy x position",
+          "source_label": "enemy_x_position",
+          "source_type": ">u2",
+          "source_address": "0x00FFB7B8",
+          "verification_state": "experimental"
+        },
+        {
+          "address": "0xB6E4",
+          "length": 2,
+          "value_type": "int16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'y_position'; source address 0x00FFB6E4 converted to core_ram offset 0xB6E4. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "y_position",
+          "edas_alias": "y_position",
+          "friendly_name": "Y position",
+          "source_label": "y_position",
+          "source_type": ">i2",
+          "source_address": "0x00FFB6E4",
+          "verification_state": "experimental",
+          "canonical_id": "player.1.position.y"
+        },
+        {
+          "address": "0xB7D4",
+          "length": 2,
+          "value_type": "int16",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'enemy_y_position'; source address 0x00FFB7D4 converted to core_ram offset 0xB7D4. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "enemy_y_position",
+          "edas_alias": "enemy_y_position",
+          "friendly_name": "Enemy y position",
+          "source_label": "enemy_y_position",
+          "source_type": ">i2",
+          "source_address": "0x00FFB7D4",
+          "verification_state": "experimental"
+        }
+      ],
+      "derived_properties": [],
+      "events": []
+    }
+  ],
+  "provenance": {
+    "summary": "Experimental import from publicly available Stable-Retro integration metadata. No ROM content is included. Every address, type, layout and ROM identity still requires EDAS runtime validation.",
+    "sources": [
+      {
+        "name": "Stable-Retro",
+        "repository": "Farama-Foundation/stable-retro",
+        "url": "https://github.com/Farama-Foundation/stable-retro",
+        "source_path": "stable_retro/data/stable/MortalKombatII-Genesis-v0",
+        "data_file": "stable_retro/data/stable/MortalKombatII-Genesis-v0/data.json",
+        "rom_hash_file": "stable_retro/data/stable/MortalKombatII-Genesis-v0/rom.sha",
+        "accessed_at": "2026-07-31",
+        "address_conversion": "Stable-Retro Genesis source addresses in the 24-bit 0xFF0000-0xFFFFFF work-RAM range are represented as 64 KiB core_ram offsets by subtracting 0xFF0000. The equivalent sign-extended 68000 range is 0xFFFF0000-0xFFFFFFFF. The EDAS Mega Drive reader convention uses byte_order swap16 and big endian.",
+        "limitations": "Stable-Retro source labels and types are useful technical evidence but are not a verification claim for this exact ROM, emulator core, or EDAS runtime."
+      }
+    ]
+  }
+}

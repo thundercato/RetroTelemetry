@@ -21,6 +21,11 @@ RetroTelemetry is an independent community project and is not tied to any single
 contains one verified ROM identifier (CRC32 `F9394E97`) and its verified Mega
 Drive memory layout. The definition contains no ROM data or game assets.
 
+The repository also contains a separate batch of 50 Mega Drive definitions
+imported from public Stable-Retro integration metadata. Those definitions are
+explicitly marked `experimental`: their ROM identity, addresses, encodings and
+gameplay semantics must be tested in EDAS before any status is promoted.
+
 ## Working Locally
 
 Use Python 3.11 or newer:

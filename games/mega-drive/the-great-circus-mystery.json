@@ -1,0 +1,125 @@
+{
+  "format": "RetroTelemetry Game Definition",
+  "schema_version": 1,
+  "definition_version": 1,
+  "game": {
+    "id": "mega-drive.the-great-circus-mystery",
+    "title": "The Great Circus Mystery Starring Mickey & Minnie",
+    "system_id": "mega_drive",
+    "aliases": [
+      "The Great Circus Mystery Starring Mickey & Minnie"
+    ]
+  },
+  "roms": [
+    {
+      "id": "stable-retro-genesis-integration",
+      "label": "Stable-Retro Genesis integration ROM",
+      "primary_hash": {
+        "algorithm": "sha1",
+        "value": "F2DF9807FE2659E8F8E6EA43B2031A6ABD980873"
+      },
+      "hashes": {
+        "crc32": [],
+        "md5": [],
+        "sha1": [
+          "F2DF9807FE2659E8F8E6EA43B2031A6ABD980873"
+        ]
+      },
+      "telemetry_layout_id": "the-great-circus-mystery-stable-retro-experimental",
+      "verification_state": "experimental",
+      "compatibility_notes": "This SHA-1 identifies the Stable-Retro integration input. Its region and revision are not asserted here; validate against the locally loaded ROM before relying on any value."
+    }
+  ],
+  "telemetry_layouts": [
+    {
+      "id": "the-great-circus-mystery-stable-retro-experimental",
+      "title": "The Great Circus Mystery Starring Mickey & Minnie Stable-Retro experimental layout",
+      "verification_state": "experimental",
+      "polling": {
+        "recommended_interval_ms": 100,
+        "memory_domains": [
+          "core_ram"
+        ]
+      },
+      "properties": [
+        {
+          "address": "0x81DE",
+          "length": 1,
+          "value_type": "uint8",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'health'; source address 0x00FF81DE converted to core_ram offset 0x81DE. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "health",
+          "edas_alias": "health",
+          "friendly_name": "Health",
+          "source_label": "health",
+          "source_type": "|u1",
+          "source_address": "0x00FF81DE",
+          "verification_state": "experimental",
+          "canonical_id": "player.1.health"
+        },
+        {
+          "address": "0x8273",
+          "length": 1,
+          "value_type": "uint8",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'lives'; source address 0x00FF8273 converted to core_ram offset 0x8273. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "lives",
+          "edas_alias": "lives",
+          "friendly_name": "Lives",
+          "source_label": "lives",
+          "source_type": "|u1",
+          "source_address": "0x00FF8273",
+          "verification_state": "experimental",
+          "canonical_id": "player.1.lives"
+        },
+        {
+          "address": "0x826B",
+          "length": 3,
+          "value_type": "uint24",
+          "memory_domain": "core_ram",
+          "byte_order": "swap16",
+          "endian": "big",
+          "poll_tier": "normal",
+          "category": "Stable-Retro Source Values",
+          "description": "Stable-Retro integration label 'score'; source address 0x00FF826B converted to core_ram offset 0x826B. Experimental RetroTelemetry import; runtime validation in EDAS is required.",
+          "id": "score",
+          "edas_alias": "score",
+          "friendly_name": "Score",
+          "source_label": "score",
+          "source_type": ">d3",
+          "source_address": "0x00FF826B",
+          "verification_state": "experimental",
+          "canonical_id": "player.1.score",
+          "encoding": "bcd",
+          "notes": "Stable-Retro source type is >d3; bcd decoding requires runtime confirmation."
+        }
+      ],
+      "derived_properties": [],
+      "events": []
+    }
+  ],
+  "provenance": {
+    "summary": "Experimental import from publicly available Stable-Retro integration metadata. No ROM content is included. Every address, type, layout and ROM identity still requires EDAS runtime validation.",
+    "sources": [
+      {
+        "name": "Stable-Retro",
+        "repository": "Farama-Foundation/stable-retro",
+        "url": "https://github.com/Farama-Foundation/stable-retro",
+        "source_path": "stable_retro/data/stable/GreatCircusMysteryStarringMickeyAndMinnie-Genesis-v0",
+        "data_file": "stable_retro/data/stable/GreatCircusMysteryStarringMickeyAndMinnie-Genesis-v0/data.json",
+        "rom_hash_file": "stable_retro/data/stable/GreatCircusMysteryStarringMickeyAndMinnie-Genesis-v0/rom.sha",
+        "accessed_at": "2026-07-31",
+        "address_conversion": "Stable-Retro Genesis source addresses in the 24-bit 0xFF0000-0xFFFFFF work-RAM range are represented as 64 KiB core_ram offsets by subtracting 0xFF0000. The equivalent sign-extended 68000 range is 0xFFFF0000-0xFFFFFFFF. The EDAS Mega Drive reader convention uses byte_order swap16 and big endian.",
+        "limitations": "Stable-Retro source labels and types are useful technical evidence but are not a verification claim for this exact ROM, emulator core, or EDAS runtime."
+      }
+    ]
+  }
+}
