@@ -1,0 +1,55 @@
+name: Assemble Rich Mega Drive Batch
+
+on:
+  push:
+    branches:
+      - "feature/mega-drive-rich-telemetry-batch"
+    paths:
+      - ".batch_payload/READY"
+
+permissions:
+  contents: write
+
+jobs:
+  assemble:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Restore generated files
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS=$'\t' read -r payload target; do
+            mkdir -p "$(dirname "$target")"
+            base64 --decode ".batch_payload/$payload" | gzip --decompress > "$target"
+          done < .batch_payload/files.tsv
+
+      - name: Validate definitions
+        run: python tools/retrotelemetry.py validate
+
+      - name: Regenerate and verify manifest
+        run: |
+          python tools/retrotelemetry.py generate
+          python tools/retrotelemetry.py check
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Commit assembled batch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm -r .batch_payload
+          git rm .github/workflows/assemble-rich-batch.yml
+          git add games docs manifest.json
+          git commit -m 'feat: add rich Mega Drive telemetry batch'
+          git push origin "HEAD:${GITHUB_REF_NAME}"
