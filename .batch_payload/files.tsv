@@ -1,0 +1,9 @@
+sonic2.gz.b64	games/mega-drive/sonic-the-hedgehog-2.json
+sonic3.gz.b64	games/mega-drive/sonic-the-hedgehog-3.json
+sk.gz.b64	games/mega-drive/sonic-and-knuckles.json
+s3k.gz.b64	games/mega-drive/sonic-3-and-knuckles.json
+kid.gz.b64	games/mega-drive/kid-chameleon.json
+manifest.gz.b64	manifest.json
+canonical.gz.b64	docs/canonical-properties-v1.md
+candidates.gz.b64	docs/research/mega-drive-rich-candidates.md
+testing.gz.b64	docs/testing/mega-drive-rich-batch.md
