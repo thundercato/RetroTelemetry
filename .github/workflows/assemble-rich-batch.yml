@@ -26,10 +26,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          while IFS=$'\t' read -r payload target; do
-            mkdir -p "$(dirname "$target")"
-            base64 --decode ".batch_payload/$payload" | gzip --decompress > "$target"
-          done < .batch_payload/files.tsv
+          cat .batch_payload/bundle.part* | tr -d '\r\n' | base64 --decode > /tmp/rt-bundle.tar.gz
+          echo '553a7889d0f561a05cc8a0f266fa8dd11f95d62a2df4f680be140b885b0adee5  /tmp/rt-bundle.tar.gz' | sha256sum --check
+          tar --extract --gzip --file /tmp/rt-bundle.tar.gz --directory .
 
       - name: Validate definitions
         run: python tools/retrotelemetry.py validate
